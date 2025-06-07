@@ -29,9 +29,9 @@ export default function ClusterLocationMapView({foodList}) {
   return (
     <>
         {location ? ( 
-            <MapView style={styles.map} showsUserLocation={true} region={{latitude:location.coords.latitude, longitude:location.coords.longitude, latitudeDelta: 0.0922,longitudeDelta: 0.0421}}>
+            <MapView  style={styles.map} showsUserLocation={true} region={{latitude:location.coords.latitude, longitude:location.coords.longitude, latitudeDelta: 0.0922,longitudeDelta: 0.0421}}>
                 {foodList.map((marker, index) => (
-                    <Marker
+                    <Marker key={marker.uid}
                     coordinate={{latitude: marker.restaurant_latitude, longitude: marker.restaurant_longitude}}
                     title={marker.restaurant_name}
                     description={marker.restaurant_address}

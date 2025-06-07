@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { FlatList, StyleSheet, View, Text  } from 'react-native'
-import { ListItem, Avatar } from '@rneui/themed';
+import { ListItem, Avatar } from '@rn-vui/themed';
 import Entypo from '@expo/vector-icons/Entypo';
 import { router } from 'expo-router';
 

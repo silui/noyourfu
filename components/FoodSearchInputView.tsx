@@ -1,4 +1,4 @@
-import { SearchBar } from '@rneui/themed';
+import { SearchBar } from '@rn-vui/themed';
 // import { SafeAreaView } from 'react-native-safe-area-context';
 
 
