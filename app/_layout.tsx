@@ -3,10 +3,8 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import 'react-native-reanimated';
 import React, { useEffect } from 'react';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 
-
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -24,11 +22,14 @@ export default function RootLayout() {
     return null;
   }
 
- 
   return (
+    <LanguageProvider>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="food/[id]" options={{ headerShown: true }} />
+        <Stack.Screen name="category/[id]" options={{ headerShown: true }} />
+        <Stack.Screen name="restaurant/[id]" options={{ headerShown: true }} />
       </Stack>
+    </LanguageProvider>
   );
 }

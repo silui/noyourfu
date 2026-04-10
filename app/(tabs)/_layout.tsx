@@ -1,51 +1,51 @@
 import { Tabs } from 'expo-router';
-
-import React, { useState, useEffect } from 'react';
-
+import React from 'react';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { strings } from '@/constants/i18n';
 
+export default function TabLayout() {
+  const { language } = useLanguage();
+  const t = strings[language];
 
-export default function TabLayout() {  
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors['light'].tint,
         headerShown: false,
-        // tabBarStyle: { position: 'absolute' },
-
-      }}>
+      }}
+    >
       <Tabs.Screen
         name="Search"
         options={{
-          title: 'Search',
+          title: t.tabSearch,
           headerShown: false,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'search' : 'search-outline'} color={color} />
           ),
         }}
       />
-    <Tabs.Screen
+      <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: t.tabHome,
           headerShown: false,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
           ),
         }}
       />
-    <Tabs.Screen
+      <Tabs.Screen
         name="Map"
         options={{
-          title: 'Map',
+          title: t.tabMap,
           headerShown: false,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'location' : 'location-outline'} color={color} />
           ),
         }}
       />
-
     </Tabs>
   );
 }
