@@ -9,7 +9,7 @@ export default function NotFoundScreen() {
 
   // Step 2: Create a function to redirect to the home page
   const redirectToHome = () => {
-    router.navigate('/home'); // Use the navigate method to navigate to the home page
+    router.navigate('/');
 
   };
 

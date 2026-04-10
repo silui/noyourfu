@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet, View, Text  } from 'react-native'
 import { ListItem, Avatar } from '@rn-vui/themed';
 import Entypo from '@expo/vector-icons/Entypo';
-import { router } from 'expo-router';
+import { router, type Href } from 'expo-router';
 
 
 const styles = StyleSheet.create({
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 
 
   const renderItemHelper = ({ item }) => (
-    <ListItem onPress={()=> router.push('/food/'+item.uid)}>
+    <ListItem onPress={() => router.push(`/food/${item.uid}` as Href)}>
         <Avatar size="large" source={item.image_link}/>
         <ListItem.Content>
             <ListItem.Title style={{fontSize:25}}>{item.food_name}</ListItem.Title>
