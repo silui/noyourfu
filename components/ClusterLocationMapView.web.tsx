@@ -54,7 +54,7 @@ export default function ClusterLocationMapView({ restaurants }: { restaurants: R
           <Popup>
             <strong>{r.name_en}</strong>
             <br />
-            {r.address}
+            {r.address_en}
           </Popup>
         </Marker>
       ))}

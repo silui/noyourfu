@@ -27,6 +27,7 @@ export default function RestaurantScreen() {
   if (!restaurant) return null;
 
   const restaurantName = language === 'en' ? restaurant.name_en : restaurant.name_zh;
+  const restaurantAddress = language === 'en' ? restaurant.address_en : restaurant.address_zh;
 
   return (
     <>
@@ -50,7 +51,7 @@ export default function RestaurantScreen() {
         </Text>
         <View style={styles.addressRow}>
           <Entypo name="location" size={16} color="#f3ce45" />
-          <Text style={styles.address}>{restaurant.address}</Text>
+          <Text style={styles.address}>{restaurantAddress}</Text>
         </View>
 
         <View style={styles.mapContainer}>
@@ -58,7 +59,7 @@ export default function RestaurantScreen() {
             latitude={restaurant.latitude}
             longitude={restaurant.longitude}
             pin_name={restaurantName}
-            pin_description={restaurant.address}
+            pin_description={restaurantAddress}
           />
         </View>
 

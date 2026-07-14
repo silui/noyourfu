@@ -1,7 +1,7 @@
 import React from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet, Image } from 'react-native';
 import { useLocalSearchParams, Stack, router, type Href } from 'expo-router';
-import { ListItem, Avatar } from '@rn-vui/themed';
+import { ListItem } from '@rn-vui/themed';
 import Entypo from '@expo/vector-icons/Entypo';
 import { categories, restaurants } from '@/constants/Food';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -38,14 +38,14 @@ export default function CategoryScreen() {
             onPress={() => router.push(`/restaurant/${item.id}` as Href)}
             bottomDivider
           >
-            <Avatar size="large" source={item.image_link} />
+            <Image source={item.image_link} style={styles.thumbnail} />
             <ListItem.Content>
               <ListItem.Title style={styles.restaurantName}>
                 {language === 'en' ? item.name_en : item.name_zh}
               </ListItem.Title>
               <ListItem.Subtitle style={styles.address}>
                 <Entypo name="location" size={14} color="#f3ce45" />
-                {'  '}{item.address}
+                {'  '}{language === 'en' ? item.address_en : item.address_zh}
               </ListItem.Subtitle>
             </ListItem.Content>
             <ListItem.Chevron />
@@ -59,6 +59,12 @@ export default function CategoryScreen() {
 const styles = StyleSheet.create({
   list: {
     backgroundColor: '#fff',
+  },
+  thumbnail: {
+    width: 72,
+    height: 72,
+    borderRadius: 8,
+    resizeMode: 'cover',
   },
   restaurantName: {
     fontSize: 18,

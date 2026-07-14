@@ -34,7 +34,7 @@ export default function ClusterLocationMapView({ restaurants }: { restaurants: R
           key={r.id}
           coordinate={{ latitude: r.latitude, longitude: r.longitude }}
           title={r.name_en}
-          description={r.address}
+          description={r.address_en}
         />
       ))}
     </MapView>

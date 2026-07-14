@@ -16,6 +16,7 @@ export default function FoodDetail() {
 
   const itemName = language === 'en' ? menuItem.name_en : menuItem.name_zh;
   const restaurantName = language === 'en' ? restaurant.name_en : restaurant.name_zh;
+  const restaurantAddress = language === 'en' ? restaurant.address_en : restaurant.address_zh;
 
   return (
     <>
@@ -46,14 +47,14 @@ export default function FoodDetail() {
           <Text style={{ fontSize: 16, marginLeft: 4 }}>{restaurantName}</Text>
         </View>
         <Text style={{ fontSize: 14, color: '#555', marginHorizontal: 16, marginTop: 4 }}>
-          {restaurant.address}
+          {restaurantAddress}
         </Text>
         <View style={{ height: 1000 }}>
           <SingleLocationMapView
             latitude={restaurant.latitude}
             longitude={restaurant.longitude}
             pin_name={restaurantName}
-            pin_description={restaurant.address}
+            pin_description={restaurantAddress}
           />
         </View>
       </ImageHeaderScrollView>
